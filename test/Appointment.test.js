@@ -72,6 +72,57 @@ describe("Test Suite Name", () => {
 
     });
 
+    //Create another describe test case, for another simple component. 
+    // 1. first will add the div view in DOM
+    // with a specific ID, so test case should be , check if that particular ID present in DOM
+
+    describe("AppointmentBookingDayView",  () =>  {
+        let container;//Here again one new container taken.
+
+
+        //beforeEach(() => {
+          //  container = document.createElement('div');
+        //});
+
+        beforeEach(() => {
+            container = document.createElement('div');
+        });
+
+        //Here also we are creating a beforeEach section, that will create all the div container before running each test 
+        // this is duplicate code, will be refractor.
+
+        const render = async (component, container) => {
+
+            await act(async () => {
+
+                ReactDOM.createRoot(container).render(component);
+
+            });
+        };
+
+
+        it("check the div is rendered with correct ID", async () => {
+
+            const component = <AppointmentDayView appointments={[]} />; 
+
+            await render(component, container);
+
+            expect(
+
+                container.querySelector(
+
+                    "div#appointmentsDayView"
+
+                )
+
+            ).not.toBeNull();
+
+        });
+
+
+
+    });
+
 
 });
 
