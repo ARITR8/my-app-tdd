@@ -120,6 +120,26 @@ describe("Test Suite Name", () => {
         });
 
 
+        //test case to check the 'ol' Element  present or not
+
+        
+
+        it("Check the ol element ", async () => {
+
+            const listComponent = <AppointmentDayView appointments={[]} />;
+            await render(listComponent, container);
+            const listValue = container.querySelector("ol");
+            expect(listValue).not.toBeNull();
+
+
+
+
+        });
+
+
+
+
+
 
     });
 
