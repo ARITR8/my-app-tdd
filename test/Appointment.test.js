@@ -1,7 +1,7 @@
 import React from "react";
 
 import ReactDOM from "react-dom/client";
-import { Appointment } from "../src/Appointment";
+import { Appointment, AppointmentDayView } from "../src/Appointment";
 import { act } from "react-dom/test-utils";
 
 let container;

@@ -4,3 +4,5 @@ import React from 'react';
 export const Appointment = ({ customer }) => {
     return <div>{ customer.firstName }</div>; // Wrap the string in a <div> or any other element
 };
+
+export const AppointmentDayView = () => { };
