@@ -19,7 +19,16 @@ describe("Test Suite Name", () => {
       
 });
 
-describe("Appointment", () => {
+    describe("Appointment", () => {
+
+        const render = async (component, container) => {
+
+            await act(async () => {
+
+                ReactDOM.createRoot(container).render(component);
+
+            });
+        };
 
     it("renders the customer first name", async ()=> {
         const customer = { firstName: "Ashley" }; // Customer data
@@ -30,9 +39,11 @@ describe("Appointment", () => {
 
         // Render the component into the container using createRoot
         // Use act to handle the async rendering
-        await act(async () => {
-            ReactDOM.createRoot(container).render(component);
-        });
+     //   await act(async () => {
+      //      ReactDOM.createRoot(container).render(component);
+      //  });
+        // Use the new render function
+        await render(component, container);
         expect(container.textContent).toContain("Ashley");
 
     });
