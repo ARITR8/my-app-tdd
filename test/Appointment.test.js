@@ -136,6 +136,23 @@ describe("Test Suite Name", () => {
 
         });
 
+        //Now fill up the list with valid data.
+        // First write down the test, then implement that.
+
+        it("check the li data rendered", async  () => {
+
+            const toDay = new Date();
+            const twoAppointments = [
+                { startAt: toDay.setHours(12, 0) }, { startAt: toDay.setHours(13, 0) },
+            ];
+            const divRender = <AppointmentDayView appointments={twoAppointments} />; 
+
+            await render(divRender, container);
+            const listChidren = container.querySelectorAll("ol>li");
+            expect(listChidren).toHaveLength(2);
+
+        });
+
 
 
 
