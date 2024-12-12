@@ -40,6 +40,8 @@ export const AppointmentDayView = ({ appointments }) => {
                         </li> // Assuming appointment is a string or an object with a meaningful toString output
                         ))}
             </ol>
+
+            <p>There are no appointments scheduled for today.</p>
         </div>
     );
 };

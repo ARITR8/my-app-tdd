@@ -181,6 +181,16 @@ describe("Test Suite Name", () => {
         });
 
 
+        //write a test to check a particular para with certain content present in DOM
+        it("The paragraph with correct content present in DOM", async() => {
+
+            const toRender = <AppointmentDayView appointments={[]} />;
+            await render(toRender, container);
+            expect(container.textContent).toContain("There are no appointments scheduled for today.") ;
+
+        });
+
+
 
 
 
