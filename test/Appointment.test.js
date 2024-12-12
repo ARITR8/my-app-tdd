@@ -175,8 +175,8 @@ describe("Test Suite Name", () => {
 
             const listChildrenVale = container.querySelectorAll("li"); // will return list.
 
-            expect(listChildrenVale[0].textContent).toEqual("12:00");
-            expect(listChildrenVale[1].textContent).toEqual("13:00");
+            expect(listChildrenVale[0].textContent).toContain("12:00");
+            expect(listChildrenVale[1].textContent).toContain("13:00");
 
         });
 
@@ -187,6 +187,33 @@ describe("Test Suite Name", () => {
             const toRender = <AppointmentDayView appointments={[]} />;
             await render(toRender, container);
             expect(container.textContent).toContain("There are no appointments scheduled for today.") ;
+
+        });
+
+
+        //write a test to see customer first name shown in page
+        it("customer first name shown on loading", async () => {
+
+            //will pass name here. 
+            const today = new Date();
+            const data = [{
+                name: "Ashley",
+                startsAt: today.setHours(12, 0, 0, 0)
+            },
+                { name: "Jordan", startsAt: today.setHours(13, 0, 0, 0) },];
+
+            const toRender = <AppointmentDayView appointments={data} />;
+
+            await render(toRender, container);
+
+            //after rendering will check the expected result
+
+            const name = container.querySelectorAll("li");
+
+            expect(name[0].textContent).toContain("Ashley: 12:00");
+
+            //but appointments will take >> object of array. 
+
 
         });
 
