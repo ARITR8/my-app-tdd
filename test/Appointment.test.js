@@ -154,6 +154,33 @@ describe("Test Suite Name", () => {
         });
 
 
+        //Test the list of items should show the time for each of the items.
+        it("Match the exact time form list items", async () => {
+
+            // Will render after creating const.
+            // and then in container using querySelector will check that.
+
+            const today = new Date();
+
+            const twoAppointments = [
+                { startsAt: today.setHours(12, 0,0,0) },
+                { startsAt: today.setHours(13, 0,0,0) },
+            ];
+
+            const divRender = <AppointmentDayView appointments={twoAppointments} />;
+
+            await render(divRender, container);  // So after using props, passing props, rendered, 
+
+            //now will fetch from dom
+
+            const listChildrenVale = container.querySelectorAll("li"); // will return list.
+
+            expect(listChildrenVale[0].textContent).toEqual("12:00");
+            expect(listChildrenVale[1].textContent).toEqual("13:00");
+
+        });
+
+
 
 
 
