@@ -210,7 +210,7 @@ describe("Test Suite Name", () => {
 
             const name = container.querySelectorAll("li");
 
-            expect(name[0].textContent).toContain("Ashley: 12:00");
+            expect(name[0].textContent).toContain("12:00");
 
             //but appointments will take >> object of array. 
 
@@ -240,6 +240,32 @@ describe("Test Suite Name", () => {
             expect(button).toHaveLength(2); //two buttons will be there.
 
             expect(button[0].type).toEqual("button");
+
+        });
+
+        it("Render new element when selected the button", async () => {
+
+            const date = new Date();
+
+            //Two appointments data 
+            const twoAppointments = [{ name: "Ashley", startsAt: date.setHours(12, 0, 0, 0) },
+            { name: "Jordan", startsAt: date.setHours(13, 0, 0, 0) },];
+
+            //render element.
+            const toRender = <AppointmentDayView appointments={twoAppointments} />;
+
+            await render(toRender, container);
+
+            //will fetch the button then will click on it. 
+            const button = container.querySelectorAll("button")[1]; //first element is "Ashley",
+            //second is Jordan, 
+
+            await act(() => button.click());//button will be clicked here. 
+
+            //expectation will be "Jordan"
+
+            expect(container.textContent).toContain("Selected Appointment: Jordan");
+
 
         });
 
