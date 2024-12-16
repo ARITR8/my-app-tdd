@@ -37,8 +37,10 @@ export const AppointmentDayView = ({ appointments }) => {
                 {appointments.length == 0 ? (<p>There are no appointments scheduled for today.</p>) : (
                 appointments.map((appointment) => ( 
                     <li key={appointment.startsAt}>
+                        <button type="button">
                         {appointment.name}: {appointmentTimeOfDay(appointment.startsAt)}
-                        </li> // Assuming appointment is a string or an object with a meaningful toString output
+                        </button>
+                            </li> // Assuming appointment is a string or an object with a meaningful toString output
                 )
                 ))}
             </ol>

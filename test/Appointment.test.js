@@ -218,6 +218,32 @@ describe("Test Suite Name", () => {
         });
 
 
+        //Now test each "li" tag has button
+        it("each 'li' element has button", async () => {
+
+            const date = new Date();
+
+            //Two appointments data 
+            const twoAppointments = [{ name: "Ashley", startsAt: date.setHours(12, 0, 0, 0 )},
+                { name: "Jordan", startsAt: date.setHours(13, 0, 0, 0) },];
+
+            //render element.
+            const toRender = <AppointmentDayView appointments={twoAppointments} />;
+
+           await render(toRender, container);
+
+            //Now fetch the button element from the li
+
+            const button = container.querySelectorAll("li>button");
+
+            //Now expect validation
+            expect(button).toHaveLength(2); //two buttons will be there.
+
+            expect(button[0].type).toEqual("button");
+
+        });
+
+
 
 
 
