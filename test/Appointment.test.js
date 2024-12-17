@@ -3,11 +3,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Appointment, AppointmentDayView } from "../src/Appointment";
 import { act } from "react-dom/test-utils";
+import {
 
-let container;
+    initializeReactContainer,
+
+    container,
+
+} from "./reactTestExtensions";
+
+//let container;
 
 beforeEach(() => {
-     container = document.createElement('div');
+    initializeReactContainer();
 });
 
 describe("Test Suite Name", () => {
