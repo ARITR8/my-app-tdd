@@ -53,6 +53,8 @@ The selected appointment's name will be displayed below the list of appointments
 
 ## Testing
 This project follows Test-Driven Development (TDD) practices. To run the tests, use the following command:
+    ```bash
+    npm test
 
 This will execute the test suite and provide you with the results. Ensure that all tests pass to confirm the functionality of the application.
 
