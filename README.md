@@ -40,8 +40,9 @@ To get started with this project, you need to have [Node.js](https://nodejs.org/
 ## Usage
 
 To start the development server, run the following command:
+
     ```bash
-    npm start
+       npm start
 After the server has started, open your browser and navigate to http://localhost:3000 to view the application.
 
 ## Appointment Selection
